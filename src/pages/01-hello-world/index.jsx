@@ -1,12 +1,13 @@
 'use client';
-import { Float, Text, OrbitControls } from '@react-three/drei';
-import MirrorMesh from './MirrorMesh';
 import { Canvas } from '@react-three/fiber';
-import styles from './page1.module.css';
+import styles from './styles.module.css';
+import { Leva } from 'leva';
+import Scene from './Scene';
 
-export default function About() {
+export default function Home() {
   return (
     <div className={styles.main}>
+      <Leva collapsed />
       <Canvas
         camera={{
           fov: 45,
@@ -15,30 +16,7 @@ export default function About() {
           position: [-4, 3, 22],
         }}
       >
-        <OrbitControls />
-        <directionalLight position={[1, 2, 3]} intensity={1.5} />
-        <ambientLight intensity={0.5} />
-        <MirrorMesh positions={[0, -1, 0]} rotateX={-Math.PI * 0.5} />
-        <MirrorMesh
-          positions={[10, 9, 0]}
-          rotateX={-Math.PI * 0.5}
-          rotateY={-Math.PI * 0.5}
-        />
-        <MirrorMesh
-          positions={[0, 9, -10]}
-          rotateX={-Math.PI * 2}
-          rotateY={-Math.PI * 2}
-        />
-        <Float>
-          <Text
-            font='./fonts/bangers-v20-latin-regular.woff'
-            fontSize={1}
-            rotation-x={-Math.PI * 2}
-            position={[1, 4, -1]}
-          >
-            Hello World
-          </Text>
-        </Float>
+        <Scene />
       </Canvas>
     </div>
   );

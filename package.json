@@ -13,7 +13,9 @@
     "@react-three/fiber": "8.9",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "leva": "^0.9.35",
     "next": "13.4.4",
+    "r3f-perf": "6.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "^0.148.0"
