@@ -1,26 +1,35 @@
 {
   "name": "react-three-playground",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite --host",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-three/drei": "9.50",
     "@react-three/fiber": "8.9",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
     "leva": "^0.9.35",
-    "next": "13.4.4",
-    "r3f-perf": "6.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "r3f-perf": "6.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.12.1",
+    "sort-by": "^1.2.0",
     "three": "^0.148.0"
   },
   "devDependencies": {
-    "address": "^1.2.2"
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^4.3.9"
   }
 }
