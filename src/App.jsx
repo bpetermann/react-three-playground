@@ -8,7 +8,7 @@ export default function Home() {
           <Link to='01-hello-world'>01 - Hello World</Link>
         </li>
         <li>
-          <Link to='02-hello-3d'>02 - Hello 3D</Link>
+          <Link to='02-3d-text'>02 - 3D Text</Link>
         </li>
       </ul>
     </main>
