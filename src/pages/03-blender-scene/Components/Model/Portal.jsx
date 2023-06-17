@@ -1,18 +1,11 @@
-import {
-  useGLTF,
-  useTexture,
-  Sparkles,
-  Center,
-  shaderMaterial,
-} from '@react-three/drei';
+import { useGLTF, useTexture, shaderMaterial } from '@react-three/drei';
+import portalFragmentShader from '../shaders/portal/fragment.glsl';
+import portalVertexShader from '../shaders/portal/vertex.glsl';
 import { useFrame } from '@react-three/fiber';
-import portalFragmentShader from './shaders/portal/fragment.glsl';
-import portalVertexShader from './shaders/portal/vertex.glsl';
 import { MeshBasicMaterial } from 'three';
-
 import { useRef } from 'react';
 
-export default function Model() {
+export default function Portal() {
   const model = useGLTF('./blender/scene.glb');
   const texture = useTexture('./blender/baking.jpg');
   const modelRef = useRef();
@@ -50,18 +43,9 @@ export default function Model() {
   }
 
   return (
-    <Center>
-      <group ref={modelRef}>
-        {model && model.scene && <primitive object={model.scene} />}
-        <meshBasicMaterial map={texture} map-flipY={false} />
-      </group>
-      <Sparkles
-        size={6}
-        scale={[4, 2, 4]}
-        position-y={1}
-        speed={0.2}
-        count={40}
-      />
-    </Center>
+    <group ref={modelRef}>
+      {model && model.scene && <primitive object={model.scene} />}
+      <meshBasicMaterial map={texture} map-flipY={false} />
+    </group>
   );
 }
