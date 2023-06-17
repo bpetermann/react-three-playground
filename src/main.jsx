@@ -10,6 +10,7 @@ import {
 import App from './App.jsx';
 import Page_01 from './pages/01-hello-world';
 import Page_02 from './pages/02-3d-text';
+import Page_03 from './pages/03-blender-scene/index.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route index element={<App />} />
       <Route path='01-hello-world' element={<Page_01 />} />
       <Route path='02-3d-text' element={<Page_02 />} />
+      <Route path='03-blender-scene' element={<Page_03 />} />
     </Route>
   )
 );

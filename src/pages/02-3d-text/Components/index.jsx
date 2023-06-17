@@ -7,7 +7,7 @@ import {
 import { useFrame } from '@react-three/fiber';
 import { useState, useRef } from 'react';
 
-export default function Experience() {
+export default function Scene() {
   const [matcaptexture] = useMatcapTexture('27222B_677491_484F6A_5D657A', 256);
   const [torusgeometry, setTorusGeometry] = useState();
   const [material, setmaterial] = useState();
@@ -53,7 +53,7 @@ export default function Experience() {
             (Math.random() - 0.5) * 10,
           ]}
           scale={0.2 + Math.random() * 0.2}
-          rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}
+          rotation={[i, i, 0]}
           material={material}
         />
       ))}
