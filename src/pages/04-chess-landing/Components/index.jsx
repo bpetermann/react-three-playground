@@ -2,41 +2,96 @@ import {
   useMatcapTexture,
   // OrbitControls,
   useGLTF,
-  Text,
-  shaderMaterial,
 } from '@react-three/drei';
-import portalFragmentShader from '../shaders/fragment.glsl';
-import portalVertexShader from '../shaders/vertex.glsl';
-import { useFrame, extend } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useState, useRef } from 'react';
+import CenterPiece from './CenterPiece';
+import BoardMesh from './BoardMesh';
+import Title from './Title';
 
 export default function Scene() {
-  const [matcaptexture] = useMatcapTexture('27222B_677491_484F6A_5D657A', 256);
-  const { nodes } = useGLTF('./blender/chess/king.glb');
-  const { nodes: pawnNodes } = useGLTF('./blender/chess/pawn.glb');
-  const [material, setmaterial] = useState();
-  const chessBoardMaterial = useRef();
-  const pawns = useRef([]);
+  const [blackMatcap] = useMatcapTexture('27222B_677491_484F6A_5D657A', 256);
+  const [whiteMatcap] = useMatcapTexture('C7C0AC_2E181B_543B30_6B6270', 256);
+  const { nodes: king } = useGLTF('./blender/chess/king.glb');
+  const { nodes: pawn } = useGLTF('./blender/chess/pawn.glb');
+  const [blackMaterial, setBlackMaterial] = useState();
+  const [whiteMaterial, setWhiteMaterial] = useState();
 
-  const ChessBoardMaterial = shaderMaterial(
+  const pieces = useRef([]);
+
+  const chessPieces = [
     {
-      uTime: 0.5,
+      geometry: king.king.geometry,
+      material: whiteMaterial,
+      scale: 0.3,
     },
-    portalVertexShader,
-    portalFragmentShader
-  );
+    {
+      geometry: king.king.geometry,
+      material: blackMaterial,
+      scale: 0.3,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: blackMaterial,
+      scale: 0.2,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: whiteMaterial,
+      scale: 0.2,
+    },
+    {
+      geometry: king.king.geometry,
+      material: whiteMaterial,
+      scale: 0.3,
+    },
+    {
+      geometry: king.king.geometry,
+      material: blackMaterial,
+      scale: 0.3,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: blackMaterial,
+      scale: 0.2,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: whiteMaterial,
+      scale: 0.2,
+    },
+    {
+      geometry: king.king.geometry,
+      material: whiteMaterial,
+      scale: 0.3,
+    },
+    {
+      geometry: king.king.geometry,
+      material: blackMaterial,
+      scale: 0.3,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: blackMaterial,
+      scale: 0.2,
+    },
+    {
+      geometry: pawn.Cube.geometry,
+      material: whiteMaterial,
+      scale: 0.2,
+    },
+  ];
 
-  extend({ ChessBoardMaterial });
+  const [centerPiece, setCenterPiece] = useState(chessPieces[1]);
 
   useFrame((_, delta) => {
-    chessBoardMaterial.current.uTime += delta;
-    for (const pawn of pawns.current) {
-      pawn.rotation.x += delta * 0.2;
-      pawn.rotation.z += delta * 0.2;
-      pawn.position.y -= delta * 0.8;
+    for (const piece of pieces.current) {
+      piece.rotation.x += delta * 0.2;
+      piece.rotation.z += delta * 0.2;
+      piece.position.y -= delta * 0.8;
 
-      if (pawn.position.y < -20) {
-        pawn.position.y = +20;
+      if (piece.position.y < -20) {
+        piece.position.y = +20;
       }
     }
   });
@@ -44,29 +99,19 @@ export default function Scene() {
   return (
     <>
       {/* <OrbitControls makeDefault /> */}
-      <meshMatcapMaterial ref={setmaterial} matcap={matcaptexture} />
-
-      <mesh
-        geometry={nodes.king.geometry}
-        scale={0.3}
-        material={material}
-        position-y={-1}
-      />
-      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={2}>
-        <planeGeometry />
-        <chessBoardMaterial ref={chessBoardMaterial} />
-      </mesh>
-      <Text fontSize={1} scale={0.4} position={[0, 1, 0]}>
-        Hello World
-      </Text>
-
-      {[...Array(25)].map((_, i) => (
+      <meshMatcapMaterial ref={setBlackMaterial} matcap={blackMatcap} />
+      <meshMatcapMaterial ref={setWhiteMaterial} matcap={whiteMatcap} />
+      <CenterPiece piece={centerPiece} blackMaterial={blackMaterial} />
+      <BoardMesh />
+      <Title />
+      {chessPieces.map((item, i) => (
         <mesh
           ref={(e) => {
-            pawns.current[i] = e;
+            pieces.current[i] = e;
           }}
           key={i}
-          geometry={pawnNodes.Cube.geometry}
+          onClick={() => setCenterPiece(item)}
+          geometry={item.geometry}
           position={[
             Math.random() * 25,
             (Math.random() - 0.5) * 10 * i,
@@ -74,7 +119,7 @@ export default function Scene() {
           ]}
           scale={0.2 + Math.random() * 0.2}
           rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}
-          material={material}
+          material={item.material}
         />
       ))}
     </>
