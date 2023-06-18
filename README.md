@@ -1,15 +1,15 @@
 ## React Three Playground
 
-- Just learning three.js,fiber and drei by doing some sketches
+- Just learning three.js, three-fiber and drei by doing some sketches
 
 ### Thanks
 
 - These sketches are original works but are based on/influenced by Bruno Simons fantastic course [threejs-journey ](https://threejs-journey.com/)
 
-### Links
+### Packages
 
-- [Three Fiber ](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
-- [Drei ](https://github.com/pmndrs/drei)
+- [three-fiber ](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [drei ](https://github.com/pmndrs/drei)
 
 ### Get started
 
