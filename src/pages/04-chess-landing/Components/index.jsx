@@ -7,7 +7,6 @@ import {
 } from '@react-three/drei';
 import portalFragmentShader from '../shaders/fragment.glsl';
 import portalVertexShader from '../shaders/vertex.glsl';
-import { Perf } from 'r3f-perf';
 import { useFrame, extend } from '@react-three/fiber';
 import { useState, useRef } from 'react';
 
@@ -30,7 +29,7 @@ export default function Scene() {
   extend({ ChessBoardMaterial });
 
   useFrame((_, delta) => {
-    // chessBoardMaterial.current.uTime += delta;
+    chessBoardMaterial.current.uTime += delta;
     for (const pawn of pawns.current) {
       pawn.rotation.x += delta * 0.2;
       pawn.rotation.z += delta * 0.2;
@@ -44,8 +43,6 @@ export default function Scene() {
 
   return (
     <>
-      <Perf position='top-left' />
-
       {/* <OrbitControls makeDefault /> */}
       <meshMatcapMaterial ref={setmaterial} matcap={matcaptexture} />
 

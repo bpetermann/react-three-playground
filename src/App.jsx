@@ -14,7 +14,7 @@ export default function Home() {
           <Link to='03-blender-scene'>03 - Blender Scene</Link>
         </li>
         <li>
-          <Link to='04-chess-landing'>04 - Landing Page</Link>
+          <Link to='04-chess-landing'>04 - Chess Page</Link>
         </li>
       </ul>
     </main>

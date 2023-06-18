@@ -1,6 +1,6 @@
 import { useGLTF, useTexture, shaderMaterial } from '@react-three/drei';
-import portalFragmentShader from '../shaders/portal/fragment.glsl';
-import portalVertexShader from '../shaders/portal/vertex.glsl';
+import portalFragmentShader from '../shaders/fragment.glsl';
+import portalVertexShader from '../shaders/vertex.glsl';
 import { useFrame } from '@react-three/fiber';
 import { MeshBasicMaterial } from 'three';
 import { useRef } from 'react';
