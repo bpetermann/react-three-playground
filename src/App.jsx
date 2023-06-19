@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <ul>
         <li>
-          <Link to='01-hello-world'>01 - Hello World</Link>
+          <Link to='01-mirror-cabinet'>01 - Mirror Cabinet</Link>
         </li>
         <li>
           <Link to='02-3d-text'>02 - 3D Text</Link>

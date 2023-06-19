@@ -2,13 +2,14 @@ import { Float, Text } from '@react-three/drei';
 import { useControls } from 'leva';
 
 export default function TextFloat() {
-  const { postion, color, visible } = useControls('Text', {
+  const { postion, color, glow, visible } = useControls('Text', {
     postion: {
       value: { x: 1, y: 4 },
       step: 0.01,
       joystick: 'invertY',
     },
     color: '#ffffff',
+    glow: false,
     visible: true,
   });
 
@@ -19,10 +20,15 @@ export default function TextFloat() {
         fontSize={1}
         rotation-x={-Math.PI * 2}
         position={[postion.x, postion.y, -1]}
-        color={color}
         visible={visible}
       >
         Hello World
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={2}
+          toneMapped={!glow ?? false}
+        />
       </Text>
     </Float>
   );

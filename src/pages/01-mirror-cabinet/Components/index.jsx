@@ -1,3 +1,4 @@
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import { OrbitControls } from '@react-three/drei';
 import MirrorMesh from './MirrorMesh';
 import { useControls } from 'leva';
@@ -11,6 +12,9 @@ export default function Scene() {
 
   return (
     <>
+      <EffectComposer>
+        <Bloom mipmapBlur />
+      </EffectComposer>
       {performance && <Perf position='top-left' />}
       <OrbitControls />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />

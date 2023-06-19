@@ -3,7 +3,7 @@ import { useControls } from 'leva';
 
 export default function MirrorMesh({ positions, rotateX = 0.5, rotateY = 0 }) {
   const { color } = useControls('Plane', {
-    color: '#adff2f',
+    color: '#f700ff',
   });
 
   return (
