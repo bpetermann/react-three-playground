@@ -2,6 +2,7 @@ import {
   useMatcapTexture,
   // OrbitControls,
   useGLTF,
+  meshBounds,
 } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useState, useRef } from 'react';
@@ -14,6 +15,7 @@ export default function Scene() {
   const [whiteMatcap] = useMatcapTexture('C7C0AC_2E181B_543B30_6B6270', 256);
   const { nodes: king } = useGLTF('./blender/chess/king.glb');
   const { nodes: pawn } = useGLTF('./blender/chess/pawn.glb');
+  const { nodes: tower } = useGLTF('./blender/chess/tower.glb');
   const [blackMaterial, setBlackMaterial] = useState();
   const [whiteMaterial, setWhiteMaterial] = useState();
 
@@ -21,64 +23,52 @@ export default function Scene() {
 
   const chessPieces = [
     {
-      geometry: king.king.geometry,
-      material: whiteMaterial,
-      scale: 0.3,
-    },
-    {
-      geometry: king.king.geometry,
+      geometry: tower.cube.geometry,
       material: blackMaterial,
-      scale: 0.3,
     },
     {
-      geometry: pawn.Cube.geometry,
+      geometry: king.cube.geometry,
       material: blackMaterial,
-      scale: 0.2,
     },
     {
-      geometry: pawn.Cube.geometry,
-      material: whiteMaterial,
-      scale: 0.2,
-    },
-    {
-      geometry: king.king.geometry,
-      material: whiteMaterial,
-      scale: 0.3,
-    },
-    {
-      geometry: king.king.geometry,
+      geometry: pawn.cube.geometry,
       material: blackMaterial,
-      scale: 0.3,
     },
     {
-      geometry: pawn.Cube.geometry,
-      material: blackMaterial,
-      scale: 0.2,
-    },
-    {
-      geometry: pawn.Cube.geometry,
+      geometry: tower.cube.geometry,
       material: whiteMaterial,
-      scale: 0.2,
     },
     {
-      geometry: king.king.geometry,
+      geometry: king.cube.geometry,
       material: whiteMaterial,
-      scale: 0.3,
     },
     {
-      geometry: king.king.geometry,
-      material: blackMaterial,
-      scale: 0.3,
-    },
-    {
-      geometry: pawn.Cube.geometry,
-      material: blackMaterial,
-      scale: 0.2,
-    },
-    {
-      geometry: pawn.Cube.geometry,
+      geometry: pawn.cube.geometry,
       material: whiteMaterial,
-      scale: 0.2,
+    },
+    {
+      geometry: tower.cube.geometry,
+      material: blackMaterial,
+    },
+    {
+      geometry: king.cube.geometry,
+      material: blackMaterial,
+    },
+    {
+      geometry: pawn.cube.geometry,
+      material: blackMaterial,
+    },
+    {
+      geometry: tower.cube.geometry,
+      material: whiteMaterial,
+    },
+    {
+      geometry: king.cube.geometry,
+      material: whiteMaterial,
+    },
+    {
+      geometry: pawn.cube.geometry,
+      material: whiteMaterial,
     },
   ];
 
@@ -106,11 +96,18 @@ export default function Scene() {
       <Title />
       {chessPieces.map((item, i) => (
         <mesh
+          key={i}
           ref={(e) => {
             pieces.current[i] = e;
           }}
-          key={i}
+          raycast={meshBounds}
           onClick={() => setCenterPiece(item)}
+          onPointerEnter={() => {
+            document.body.style.cursor = 'pointer';
+          }}
+          onPointerLeave={() => {
+            document.body.style.cursor = 'default';
+          }}
           geometry={item.geometry}
           position={[
             Math.random() * 25,
