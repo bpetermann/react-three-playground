@@ -12,6 +12,7 @@ import Page_01 from './pages/01-mirror-cabinet';
 import Page_02 from './pages/02-3d-text';
 import Page_03 from './pages/03-blender-scene/index.jsx';
 import Page_04 from './pages/04-chess-landing/index.jsx';
+import Page_05 from './pages/05-portfolio/index.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path='02-3d-text' element={<Page_02 />} />
       <Route path='03-blender-scene' element={<Page_03 />} />
       <Route path='04-chess-landing' element={<Page_04 />} />
+      <Route path='05-portfolio' element={<Page_05 />} />
     </Route>
   )
 );

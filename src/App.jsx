@@ -16,6 +16,9 @@ export default function Home() {
         <li>
           <Link to='04-chess-landing'>04 - Chess Page</Link>
         </li>
+        <li>
+          <Link to='05-portfolio'>05 - Portfolio</Link>
+        </li>
       </ul>
     </main>
   );
