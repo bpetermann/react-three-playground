@@ -1,13 +1,7 @@
-import {
-  useMatcapTexture,
-  // OrbitControls,
-  useGLTF,
-  meshBounds,
-} from '@react-three/drei';
+import { useMatcapTexture, useGLTF, meshBounds } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useState, useRef } from 'react';
-import CenterPiece from './CenterPiece';
-import BoardMesh from './BoardMesh';
+import Highlight from './Highlight';
 import Title from './Title';
 
 export default function Scene() {
@@ -88,11 +82,9 @@ export default function Scene() {
 
   return (
     <>
-      {/* <OrbitControls makeDefault /> */}
       <meshMatcapMaterial ref={setBlackMaterial} matcap={blackMatcap} />
       <meshMatcapMaterial ref={setWhiteMaterial} matcap={whiteMatcap} />
-      <CenterPiece piece={centerPiece} blackMaterial={blackMaterial} />
-      <BoardMesh />
+      <Highlight piece={centerPiece} blackMaterial={blackMaterial} />
       <Title />
       {chessPieces.map((item, i) => (
         <mesh

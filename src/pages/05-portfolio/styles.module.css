@@ -1,9 +1,20 @@
-.canvas {
+.container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0f244a;
-  }
-  
+  background-color: #242424;
+}
+
+.container canvas {
+  touch-action: none;
+}
+
+.html iframe {
+  width: 1024px;
+  height: 670px;
+  border: none;
+  border-radius: 20px;
+  background-color: #000;
+}

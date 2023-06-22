@@ -5,13 +5,13 @@ import Scene from './Components';
 
 export default function Home() {
   return (
-    <div className={styles.canvas}>
+    <div className={styles.container}>
       <Canvas
         camera={{
           fov: 45,
           near: 0.1,
-          far: 200,
-          position: [-8, 2, 6],
+          far: 2000,
+          position: [-3, 1.5, 4],
         }}
       >
         <Scene />
