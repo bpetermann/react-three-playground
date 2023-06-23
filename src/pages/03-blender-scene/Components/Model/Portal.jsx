@@ -6,8 +6,8 @@ import { MeshBasicMaterial } from 'three';
 import { useRef } from 'react';
 
 export default function Portal() {
-  const model = useGLTF('./blender/scene.glb');
-  const texture = useTexture('./blender/baking.jpg');
+  const model = useGLTF('./blender/portal/scene.glb');
+  const texture = useTexture('./blender/portal/baking.jpg');
   const modelRef = useRef();
 
   const material = useRef(new MeshBasicMaterial({ map: texture }));

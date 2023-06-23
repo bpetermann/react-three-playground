@@ -1,0 +1,63 @@
+.container {
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Ubuntu',
+    'Cantarell', 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: #050405;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container > h1 {
+  padding-top: 16px;
+  margin: 0px;
+  color: #e1e6eb;
+  font-size: 31.5px;
+}
+
+.container > h2 {
+  padding: 0px;
+  margin: 0px;
+  color: #6a7882;
+  font-size: 18px;
+  padding-bottom: 16px;
+}
+
+.img {
+  width: 50%;
+  max-width: 300px;
+}
+
+.links {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.links li {
+  all: unset;
+}
+
+.github > img {
+  width: 46px;
+  height: 46px;
+}
+
+.linkedin > img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(33deg)
+    brightness(102%) contrast(104%);
+  width: 46px;
+  height: 46px;
+}
+
+.mail > img {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  height: 30px;
+  width: 30px;
+}
