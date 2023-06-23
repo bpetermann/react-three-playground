@@ -21,7 +21,7 @@
   padding: 0px;
   margin: 0px;
   color: #6a7882;
-  font-size: 18px;
+  font-size: 22px;
   padding-bottom: 16px;
 }
 
@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .links li {
