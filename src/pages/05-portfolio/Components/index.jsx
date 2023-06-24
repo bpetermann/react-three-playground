@@ -1,26 +1,16 @@
 import {
   Environment,
-  useGLTF,
   PresentationControls,
   Float,
   ContactShadows,
-  Html,
-  Text,
   OrbitControls,
 } from '@react-three/drei';
-import styles from '../styles.module.css';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
+import Model from './Model';
+import Title from './Title';
 
 export default function Experience() {
-  const model = useGLTF('./blender/laptop/laptop-new.glb');
   const [showScreen, setShowScreem] = useState(false);
-
-  const toggleScreen = (e) => {
-    e.stopPropagation();
-    if (e.object.material.name === 'screen') {
-      setShowScreem((prev) => !prev);
-    }
-  };
 
   return (
     <>
@@ -38,48 +28,15 @@ export default function Experience() {
           <rectAreaLight
             width={2.5}
             height={1.65}
-            intensity={65}
-            color={'#1095c1'}
+            intensity={showScreen ? 65 : 0}
+            color={showScreen ? '#1095c1' : undefined}
             rotation={[-0.1, Math.PI, 0]}
             position={[0, 0.55, -1.15]}
           />
-          <primitive
-            object={model.scene}
-            position-y={-0.8}
-            scale={0.1}
-            onClick={toggleScreen}
-          >
-            {showScreen && (
-              <Html
-                transform
-                wrapperClass={styles.html}
-                distanceFactor={10.45}
-                position={[-0.26, 9.07, -13.37]}
-                rotation-x={-0.256}
-              >
-                <iframe src={`${window.location.origin}/05-portfolio-screen`} />
-              </Html>
-            )}
-          </primitive>
-          <Text
-            font='./fonts/bangers-v20-latin-regular.woff'
-            fontSize={0.5}
-            position={[2, 0.75, 0.25]}
-            rotation-y={-1.25}
-            maxWidth={2}
-            textAlign='center'
-          >
-            Benjamin Petermann
-          </Text>
-          <Text
-            font='./fonts/bangers-v20-latin-regular.woff'
-            fontSize={0.2}
-            position={[2, 0.0, 0.2]}
-            rotation-y={-1.25}
-            maxWidth={2}
-          >
-            - Click Screen -
-          </Text>
+          <Suspense fallback={null}>
+            <Model showScreen={showScreen} setShowScreem={setShowScreem} />
+          </Suspense>
+          <Title />
         </Float>
       </PresentationControls>
 
