@@ -57,9 +57,7 @@ export default function Experience() {
                 position={[-0.26, 9.07, -13.37]}
                 rotation-x={-0.256}
               >
-                <iframe
-                  src={`${window.location.origin}/05-portfolio-screen`}
-                />
+                <iframe src={`${window.location.origin}/05-portfolio-screen`} />
               </Html>
             )}
           </primitive>
