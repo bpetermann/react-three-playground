@@ -5,17 +5,14 @@ import { useFrame } from '@react-three/fiber';
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
-const floor1Material = new THREE.MeshStandardMaterial({ color: 'limegreen' });
-const floor2Material = new THREE.MeshStandardMaterial({ color: 'greenyellow' });
-const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 'orangered' });
-const wallMaterial = new THREE.MeshStandardMaterial({ color: 'slategrey' });
-
 export function BlockStart({ position = [0, 0, 0] }) {
+  const floorMaterial = new THREE.MeshStandardMaterial({ color: 'limegreen' });
+
   return (
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floor1Material}
+        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
@@ -25,6 +22,13 @@ export function BlockStart({ position = [0, 0, 0] }) {
 }
 
 export function BlockSpinner({ position = [0, 0, 0] }) {
+  const obstacleMaterial = new THREE.MeshStandardMaterial({
+    color: 'orangered',
+  });
+  const floorMaterial = new THREE.MeshStandardMaterial({
+    color: 'greenyellow',
+  });
+
   const obstacle = useRef();
   const [speed] = useState(
     () => (Math.random() + 0.2) * (Math.random() > 0.5 ? -1 : 1)
@@ -44,7 +48,7 @@ export function BlockSpinner({ position = [0, 0, 0] }) {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floor2Material}
+        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
@@ -70,6 +74,13 @@ export function BlockSpinner({ position = [0, 0, 0] }) {
 }
 
 export function BlockLimbo({ position = [0, 0, 0] }) {
+  const obstacleMaterial = new THREE.MeshStandardMaterial({
+    color: 'orangered',
+  });
+  const floorMaterial = new THREE.MeshStandardMaterial({
+    color: 'greenyellow',
+  });
+
   const obstacle = useRef();
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 
@@ -90,7 +101,7 @@ export function BlockLimbo({ position = [0, 0, 0] }) {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floor2Material}
+        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
@@ -115,6 +126,13 @@ export function BlockLimbo({ position = [0, 0, 0] }) {
 }
 
 export function BlockAxe({ position = [0, 0, 0] }) {
+  const obstacleMaterial = new THREE.MeshStandardMaterial({
+    color: 'orangered',
+  });
+  const floorMaterial = new THREE.MeshStandardMaterial({
+    color: 'greenyellow',
+  });
+
   const obstacle = useRef();
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 
@@ -135,7 +153,7 @@ export function BlockAxe({ position = [0, 0, 0] }) {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floor2Material}
+        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
@@ -160,11 +178,13 @@ export function BlockAxe({ position = [0, 0, 0] }) {
 }
 
 export function BlockEnd({ position = [0, 0, 0] }) {
+  const floorMaterial = new THREE.MeshStandardMaterial({ color: 'limegreen' });
+
   return (
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floor1Material}
+        material={floorMaterial}
         position={[0, 0, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
@@ -181,6 +201,8 @@ export function BlockEnd({ position = [0, 0, 0] }) {
 }
 
 function Bounds({ length = 1 }) {
+  const wallMaterial = new THREE.MeshStandardMaterial({ color: 'slategrey' });
+
   return (
     <RigidBody type='fixed' restitution={0.2} friction={0}>
       <mesh
