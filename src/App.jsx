@@ -19,6 +19,9 @@ export default function Home() {
         <li>
           <Link to='05-portfolio'>05 - Portfolio</Link>
         </li>
+        <li>
+          <Link to='06-marble-game'>06 - Marble Game</Link>
+        </li>
       </ul>
     </main>
   );

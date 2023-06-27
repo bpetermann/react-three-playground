@@ -4,7 +4,7 @@
 
 ### Thanks
 
-- These sketches are original works but are based on/influenced by Bruno Simons fantastic course [threejs-journey ](https://threejs-journey.com/)
+- These sketches are, unless stated otherwise, original works but are based on/influenced by Bruno Simons fantastic course [threejs-journey ](https://threejs-journey.com/)
 
 ### Packages
 
