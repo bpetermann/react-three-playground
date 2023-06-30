@@ -1,7 +1,8 @@
-import * as THREE from 'three';
-import { useMemo } from 'react';
-import { RigidBody, CuboidCollider } from '@react-three/rapier';
 import { BlockSpinner, BlockAxe, BlockLimbo } from './Obstacles';
+import { RigidBody, CuboidCollider } from '@react-three/rapier';
+import { Float, Text } from '@react-three/drei';
+import { useMemo } from 'react';
+import * as THREE from 'three';
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
@@ -10,6 +11,20 @@ export function BlockStart({ position = [0, 0, 0] }) {
 
   return (
     <group position={position}>
+      <Float>
+        <Text
+          font='./fonts/bebas-neue-v9-latin-regular.woff'
+          scale={0.4}
+          maxWidth={0.25}
+          lineHeight={0.75}
+          textAlign='right'
+          position={[0.75, 0.65, 0]}
+          rotation-y={-0.25}
+        >
+          Marble Race
+          <meshBasicMaterial toneMapped={false} />
+        </Text>
+      </Float>
       <mesh
         geometry={boxGeometry}
         material={floorMaterial}
@@ -26,6 +41,14 @@ export function BlockEnd({ position = [0, 0, 0] }) {
 
   return (
     <group position={position}>
+      <Text
+        font='/bebas-neue-v9-latin-regular.woff'
+        scale={1}
+        position={[0, 2.25, -2]}
+      >
+        FINISH
+        <meshBasicMaterial toneMapped={false} />
+      </Text>
       <mesh
         geometry={boxGeometry}
         material={floorMaterial}
@@ -87,7 +110,7 @@ export function Level({
     }
 
     return blocks;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [obstacles, types, update]);
 
   return (

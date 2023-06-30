@@ -4,7 +4,7 @@ import { create } from 'zustand';
 const useStore = create(
   subscribeWithSelector((set) => {
     return {
-      obstacles: 4,
+      obstacles: 10,
       obstaclesUpdate: 0,
       startTime: 0,
       endTime: 0,
