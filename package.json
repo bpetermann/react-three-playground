@@ -23,7 +23,8 @@
     "react-router-dom": "^6.12.1",
     "sort-by": "^0.0.2",
     "three": "^0.148.0",
-    "vite-plugin-glsl": "^1.1.2"
+    "vite-plugin-glsl": "^1.1.2",
+    "zustand": "4.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

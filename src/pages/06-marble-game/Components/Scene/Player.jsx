@@ -1,16 +1,19 @@
-import { RigidBody } from '@react-three/rapier';
 import { useKeyboardControls } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
+import { RigidBody } from '@react-three/rapier';
+import { useFrame } from '@react-three/fiber';
+import useStore from '../../store';
 import * as THREE from 'three';
 
 export default function Player() {
   const body = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
   const [smoothedCameraPosition] = useState(
-    () => new THREE.Vector3(-10, -10, -10)
+    () => new THREE.Vector3(10, 10, 10)
   );
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
+  const start = useStore((state) => state.start);
+
   const jump = () => {
     const { y } = body.current.translation();
     if (Math.ceil(y) === 1) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
@@ -24,8 +27,13 @@ export default function Player() {
       }
     );
 
+    const unsubscribeFirst = subscribeKeys(() => {
+      start();
+    });
+
     return () => {
       unsubscribeJump();
+      unsubscribeFirst();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
