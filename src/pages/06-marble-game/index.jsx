@@ -2,7 +2,7 @@
 import { KeyboardControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import styles from './styles.module.css';
-import { Scene, Interface } from './components';
+import { Scene, Interface } from './Components';
 
 export default function Home() {
   return (
