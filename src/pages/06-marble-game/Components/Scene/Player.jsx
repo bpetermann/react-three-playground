@@ -12,14 +12,29 @@ export default function Player() {
     () => new THREE.Vector3(10, 10, 10)
   );
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
-  const start = useStore((state) => state.start);
+  const { start, end, restart, obstacles } = useStore();
 
   const jump = () => {
     const { y } = body.current.translation();
     if (Math.ceil(y) === 1) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
   };
 
+  const reset = () => {
+    body.current.setTranslation({ x: 0, y: 1, z: 0 });
+    body.current.setLinvel({ x: 0, y: 0, z: 0 });
+    body.current.setAngvel({ x: 0, y: 0, z: 0 });
+  };
+
   useEffect(() => {
+    const unsubscribeReset = useStore.subscribe(
+      (state) => state.phase,
+      (phase) => {
+        if (phase === 'ready') {
+          reset();
+        }
+      }
+    );
+
     const unsubscribeJump = subscribeKeys(
       (state) => state.jump,
       (value) => {
@@ -32,6 +47,7 @@ export default function Player() {
     });
 
     return () => {
+      unsubscribeReset();
       unsubscribeJump();
       unsubscribeFirst();
     };
@@ -87,6 +103,14 @@ export default function Player() {
 
       state.camera.position.copy(smoothedCameraPosition);
       state.camera.lookAt(smoothedCameraTarget);
+
+      if (bodyPosition.z < -(obstacles * 4 + 2)) {
+        end();
+      }
+
+      if (bodyPosition.y < -4) {
+        restart();
+      }
     }
   });
 

@@ -74,19 +74,21 @@ function Bounds({ length = 1 }) {
 }
 
 export function Level({
-  count = 5,
+  obstacles = 5,
   types = [BlockSpinner, BlockAxe, BlockLimbo],
+  update = 0,
 }) {
   const blocks = useMemo(() => {
     const blocks = [];
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < obstacles; i++) {
       const type = types[Math.floor(Math.random() * types.length)];
       blocks.push(type);
     }
 
     return blocks;
-  }, [count, types]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [obstacles, types, update]);
 
   return (
     <>
@@ -96,8 +98,8 @@ export function Level({
         <Block position={[0, 0, -(i + 1) * 4]} key={i} />
       ))}
 
-      <BlockEnd position={[0, 0, -(count + 1) * 4]} />
-      <Bounds length={count + 2} />
+      <BlockEnd position={[0, 0, -(obstacles + 1) * 4]} />
+      <Bounds length={obstacles + 2} />
     </>
   );
 }
