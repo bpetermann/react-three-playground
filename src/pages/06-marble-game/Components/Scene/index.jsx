@@ -7,7 +7,7 @@ import Lights from './Lights.jsx';
 export default function Scene() {
   const obstacles = useStore((state) => state.obstacles);
   const obstaclesUpdate = useStore((state) => state.obstaclesUpdate);
-console.log(obstaclesUpdate)
+
   return (
     <>
       <Physics>
