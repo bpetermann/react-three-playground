@@ -15,6 +15,7 @@ import Page_04 from './pages/04-chess-landing/index.jsx';
 import Page_05 from './pages/05-portfolio/index.jsx';
 import Page_05_Browser from './pages/05-portfolio-screen/index.jsx';
 import Page_06 from './pages/06-marble-game/index.jsx';
+import Page_07 from './pages/07-bowl-of-skills/index.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path='05-portfolio' element={<Page_05 />} />
       <Route path='05-portfolio-screen' element={<Page_05_Browser />} />
       <Route path='06-marble-game' element={<Page_06 />} />
+      <Route path='07-bowl-of-skills' element={<Page_07 />} />
     </Route>
   )
 );
