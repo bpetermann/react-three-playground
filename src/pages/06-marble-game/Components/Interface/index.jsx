@@ -6,8 +6,9 @@ import useStore from '../../store';
 
 export default function Interface() {
   const time = useRef();
-  const { forward, backward, leftward, rightward, jump } =
-    useKeyboardControls();
+  const { forward, backward, leftward, rightward, jump } = useKeyboardControls(
+    (state) => state
+  );
   const { phase, restart } = useStore();
 
   useEffect(() => {
