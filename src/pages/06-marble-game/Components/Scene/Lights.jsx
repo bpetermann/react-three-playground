@@ -1,5 +1,5 @@
-import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
 
 export default function Lights() {
   const light = useRef();

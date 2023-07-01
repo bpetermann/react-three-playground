@@ -1,16 +1,14 @@
-import * as THREE from 'three';
 import { RigidBody } from '@react-three/rapier';
-import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
+import FloorMaterial from '../FloorMaterial';
+import { useRef, useState } from 'react';
+import * as THREE from 'three';
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
 const BlockSpinner = ({ position = [0, 0, 0] }) => {
   const obstacleMaterial = new THREE.MeshStandardMaterial({
     color: 'orangered',
-  });
-  const floorMaterial = new THREE.MeshStandardMaterial({
-    color: 'greenyellow',
   });
 
   const obstacle = useRef();
@@ -32,11 +30,12 @@ const BlockSpinner = ({ position = [0, 0, 0] }) => {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
-      />
+      >
+        <FloorMaterial />
+      </mesh>
       <RigidBody
         ref={obstacle}
         type='kinematicPosition'
@@ -61,9 +60,6 @@ const BlockLimbo = ({ position = [0, 0, 0] }) => {
   const obstacleMaterial = new THREE.MeshStandardMaterial({
     color: 'orangered',
   });
-  const floorMaterial = new THREE.MeshStandardMaterial({
-    color: 'greenyellow',
-  });
 
   const obstacle = useRef();
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
@@ -85,11 +81,12 @@ const BlockLimbo = ({ position = [0, 0, 0] }) => {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
-      />
+      >
+        <FloorMaterial />
+      </mesh>
       <RigidBody
         ref={obstacle}
         type='kinematicPosition'
@@ -113,9 +110,6 @@ const BlockAxe = ({ position = [0, 0, 0] }) => {
   const obstacleMaterial = new THREE.MeshStandardMaterial({
     color: 'orangered',
   });
-  const floorMaterial = new THREE.MeshStandardMaterial({
-    color: 'greenyellow',
-  });
 
   const obstacle = useRef();
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
@@ -137,11 +131,12 @@ const BlockAxe = ({ position = [0, 0, 0] }) => {
     <group position={position}>
       <mesh
         geometry={boxGeometry}
-        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
-      />
+      >
+        <FloorMaterial />
+      </mesh>
       <RigidBody
         ref={obstacle}
         type='kinematicPosition'

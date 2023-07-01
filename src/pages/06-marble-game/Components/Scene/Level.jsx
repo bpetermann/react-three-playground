@@ -1,14 +1,13 @@
 import { BlockSpinner, BlockAxe, BlockLimbo } from './Obstacles';
 import { RigidBody, CuboidCollider } from '@react-three/rapier';
 import { Float, Text } from '@react-three/drei';
+import FloorMaterial from './FloorMaterial';
 import { useMemo } from 'react';
 import * as THREE from 'three';
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 
 export function BlockStart({ position = [0, 0, 0] }) {
-  const floorMaterial = new THREE.MeshStandardMaterial({ color: 'limegreen' });
-
   return (
     <group position={position}>
       <Float>
@@ -27,18 +26,17 @@ export function BlockStart({ position = [0, 0, 0] }) {
       </Float>
       <mesh
         geometry={boxGeometry}
-        material={floorMaterial}
         position={[0, -0.1, 0]}
         scale={[4, 0.2, 4]}
         receiveShadow
-      />
+      >
+        <FloorMaterial />
+      </mesh>
     </group>
   );
 }
 
 export function BlockEnd({ position = [0, 0, 0] }) {
-  const floorMaterial = new THREE.MeshStandardMaterial({ color: 'limegreen' });
-
   return (
     <group position={position}>
       <Text
@@ -49,13 +47,16 @@ export function BlockEnd({ position = [0, 0, 0] }) {
         FINISH
         <meshBasicMaterial toneMapped={false} />
       </Text>
-      <mesh
-        geometry={boxGeometry}
-        material={floorMaterial}
-        position={[0, 0, 0]}
-        scale={[4, 0.2, 4]}
-        receiveShadow
-      />
+      <RigidBody type='fixed'>
+        <mesh
+          geometry={boxGeometry}
+          position={[0, 0, 0]}
+          scale={[4, 0.2, 4]}
+          receiveShadow
+        >
+          <FloorMaterial />
+        </mesh>
+      </RigidBody>
     </group>
   );
 }
