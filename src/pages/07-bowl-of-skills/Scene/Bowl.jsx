@@ -10,6 +10,7 @@ export default function Bowl() {
         object={model.scene}
         receiveShadow
         position-z={-1.25}
+        position-y={-0.4}
         scale={1.2}
       />
     </RigidBody>

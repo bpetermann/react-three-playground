@@ -4,20 +4,7 @@ import { Suspense } from 'react';
 import Skill from './Skill';
 import Bowl from './Bowl';
 
-const skills = [
-  {
-    name: 'react',
-    site: 'https://react.dev/',
-  },
-  {
-    name: 'node',
-    site: 'https://nodejs.org/en',
-  },
-  {
-    name: 'svelte',
-    site: 'https://svelte.dev/',
-  },
-];
+const skills = ['html', 'css', 'js', 'ts', 'react', 'svelte', 'node', 'next'];
 
 export default function Experience() {
   return (
@@ -34,9 +21,9 @@ export default function Experience() {
       />
 
       <Physics gravity={[0, -1.6, 0]}>
-        {skills.map(({ name, site }, i) => (
-          <Suspense fallback={null} key={site + i}>
-            <Skill offset={i * 3} path={name} site={site} />
+        {skills.map((name, i) => (
+          <Suspense fallback={null} key={name + i}>
+            <Skill offset={i * 3} path={name} />
           </Suspense>
         ))}
 

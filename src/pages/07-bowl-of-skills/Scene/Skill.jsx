@@ -1,7 +1,7 @@
 import { RigidBody, CuboidCollider } from '@react-three/rapier';
 import { useGLTF } from '@react-three/drei';
 
-export default function Skill({ path, offset, site }) {
+export default function Skill({ path, offset }) {
   const model = useGLTF(`./blender/skills/${path}.glb`);
 
   return (
@@ -12,15 +12,6 @@ export default function Skill({ path, offset, site }) {
         rotation-x={Math.PI / 2}
         rotation-z={0.5}
         scale={0.4}
-        onClick={() => {
-          window.open(site);
-        }}
-        onPointerEnter={() => {
-          document.body.style.cursor = 'pointer';
-        }}
-        onPointerLeave={() => {
-          document.body.style.cursor = 'default';
-        }}
       />
     </RigidBody>
   );
