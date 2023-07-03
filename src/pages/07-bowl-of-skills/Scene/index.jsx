@@ -12,13 +12,6 @@ export default function Experience() {
       <OrbitControls />
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
-      <rectAreaLight
-        width={2.5}
-        height={1.65}
-        intensity={65}
-        rotation={[-0.1, Math.PI, 0]}
-        position={[0, 0.55, -1.15]}
-      />
 
       <Physics gravity={[0, -1.6, 0]}>
         {skills.map((name, i) => (

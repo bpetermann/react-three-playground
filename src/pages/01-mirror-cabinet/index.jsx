@@ -2,7 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import styles from './styles.module.css';
 import { Leva } from 'leva';
-import Scene from './Components';
+import Scene from './Scene';
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 import { Canvas } from '@react-three/fiber';
 import styles from './styles.module.css';
-import Scene from './Components';
+import Scene from './Scene';
 
 export default function Home() {
   return (
