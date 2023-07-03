@@ -22,9 +22,6 @@ export default function Home() {
         <li>
           <Link to='06-marble-game'>06 - Marble Game</Link>
         </li>
-        <li>
-          <Link to='07-bowl-of-skills'>07 - Bowl of Skills</Link>
-        </li>
       </ul>
     </main>
   );
