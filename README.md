@@ -9,7 +9,13 @@
 ### Packages
 
 - [three-fiber ](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [zustand](https://github.com/pmndrs/zustand)
+- [r3f-perf](https://www.npmjs.com/package/r3f-perf)
+- [threejs](https://threejs.org/)
+- [rapier](https://github.com/pmndrs/react-three-rapier)
+- [leva](https://github.com/pmndrs/leva)
 - [drei ](https://github.com/pmndrs/drei)
+
 
 ### Get started
 
