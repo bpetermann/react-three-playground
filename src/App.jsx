@@ -1,27 +1,49 @@
 import { Link } from 'react-router-dom';
+import styles from './styles.module.css';
+
+const sketches = [
+  {
+    link: '01-mirror-cabinet',
+    name: '01 - Mirror Cabinet',
+  },
+  {
+    link: '02-3d-text',
+    name: '02 - 3D Text',
+  },
+  {
+    link: '03-blender-scene',
+    name: '03 - Blender Scene',
+  },
+  {
+    link: '04-chess-landing',
+    name: '04 - Chess Page',
+  },
+  {
+    link: '05-portfolio',
+    name: '05 - Portfolio',
+  },
+  {
+    link: '06-marble-game',
+    name: '06 - Marble Game',
+  },
+];
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.container}>
+      <h1>React Three Playground</h1>
       <ul>
-        <li>
-          <Link to='01-mirror-cabinet'>01 - Mirror Cabinet</Link>
-        </li>
-        <li>
-          <Link to='02-3d-text'>02 - 3D Text</Link>
-        </li>
-        <li>
-          <Link to='03-blender-scene'>03 - Blender Scene</Link>
-        </li>
-        <li>
-          <Link to='04-chess-landing'>04 - Chess Page</Link>
-        </li>
-        <li>
-          <Link to='05-portfolio'>05 - Portfolio</Link>
-        </li>
-        <li>
-          <Link to='06-marble-game'>06 - Marble Game</Link>
-        </li>
+        {sketches.map(({ link, name }, i) => (
+          <li key={`${name}${link}`} className={styles.item}>
+            <h4>{name}</h4>
+            <Link to={link} className={styles.link}>
+              <img src={`/images/preview/0${i + 1}.png`} alt='preview image' />
+              <span>
+                Link <img src='/images/arrow.png' alt='arrow' />
+              </span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </main>
   );
