@@ -4,7 +4,7 @@
   font-weight: 500;
 
   color-scheme: light dark;
-  color: #ededed;
+  color: #e1ebff;
   background-color: #111111;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,7 +24,8 @@
 }
 
 .container > ul {
-  max-width: 1368;
+  width: 100%;
+  max-width: 1368px;
   padding: 16px;
   display: flex;
   text-align: center;
