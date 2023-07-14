@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.container > h1 {
+  font-size: 28px;
+}
+
 .container > ul {
   max-width: 1368;
   padding: 16px;
@@ -93,6 +97,10 @@ img {
   .item {
     flex-basis: calc(33.33% - 10.67px);
     width: calc(33.33% - 10.67px);
+  }
+
+  .container > h1 {
+    font-size: 32px;
   }
 }
 
