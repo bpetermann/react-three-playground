@@ -4,7 +4,7 @@ import portalVertexShader from '../shaders/vertex.glsl';
 import { extend, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 
-export default function Scene() {
+export default function Chessboard() {
   const chessBoardMaterial = useRef();
 
   useFrame((_, delta) => {

@@ -14,12 +14,12 @@ import Page_04 from './pages/04-chess-landing/index.jsx';
 import Page_05 from './pages/05-portfolio/index.jsx';
 import Page_05_Browser from './pages/05-portfolio-screen/index.jsx';
 import Page_06 from './pages/06-marble-game/index.jsx';
+import Page_07 from './pages/07-shader-art/index.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index element={<App />} />
-
       <Route path='01-mirror-cabinet' element={<Page_01 />} />
       <Route path='02-3d-text' element={<Page_02 />} />
       <Route path='03-blender-scene' element={<Page_03 />} />
@@ -27,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='05-portfolio' element={<Page_05 />} />
       <Route path='05-portfolio-screen' element={<Page_05_Browser />} />
       <Route path='06-marble-game' element={<Page_06 />} />
+      <Route path='07-shader-art' element={<Page_07 />} />
     </Route>
   )
 );
