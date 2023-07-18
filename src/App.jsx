@@ -26,6 +26,10 @@ const sketches = [
     link: '06-marble-game',
     name: '06 - Marble Game',
   },
+  {
+    link: '07-shader-art',
+    name: '07 - Shader Art',
+  },
 ];
 
 export default function Home() {
