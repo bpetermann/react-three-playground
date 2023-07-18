@@ -1,11 +1,11 @@
 ## React Three Playground
 
 - Just learning three.js, three-fiber and drei by doing some sketches
-- [View Live](https:/react-three-playground-three.vercel.app)
-
+-  [View Live](https://react-three-playground-three.vercel.app/)
+    
 ### Thanks
 
-- These sketches are, unless stated otherwise, original works but are based on/influenced by Bruno Simons fantastic course [threejs-journey ](https://threejs-journey.com/)
+These sketches are, unless stated otherwise, original works but are based on/influenced by Bruno Simons fantastic course [threejs-journey ](https://threejs-journey.com/)
 
 ### Packages
 
