@@ -1,5 +1,6 @@
 import { extend, useFrame } from '@react-three/fiber';
 import { useRef, useState } from 'react';
+import { Text } from '@react-three/drei';
 import { ShaderMaterial } from 'three';
 
 import vertex from '../shaders/vertex.glsl';
@@ -30,18 +31,37 @@ export default function Scene() {
   extend({ ShaderMaterial });
 
   return (
-    <mesh
-      scale={2}
-      onClick={() => {
-        setCount((prev) => (prev + 1) % fragments.length);
-      }}
-    >
-      <planeGeometry />
-      <shaderMaterial
-        ref={shader}
-        attach='material'
-        args={[createShaderMaterial()]}
-      />
-    </mesh>
+    <>
+      {!count && (
+        <Text
+          font='./fonts/bangers-v20-latin-regular.woff'
+          fontSize={0.18}
+          position-y={1.5}
+          maxWidth={2}
+        >
+          - click to switch -
+        </Text>
+      )}
+
+      <mesh
+        scale={2}
+        onClick={() => {
+          setCount((prev) => (prev + 1) % fragments.length);
+        }}
+        onPointerEnter={() => {
+          document.body.style.cursor = 'pointer';
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = 'default';
+        }}
+      >
+        <planeGeometry />
+        <shaderMaterial
+          ref={shader}
+          attach='material'
+          args={[createShaderMaterial()]}
+        />
+      </mesh>
+    </>
   );
 }
