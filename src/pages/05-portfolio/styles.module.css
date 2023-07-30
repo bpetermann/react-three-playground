@@ -18,3 +18,8 @@
   border-radius: 20px;
   background-color: #000;
 }
+
+.spinner {
+  width: 32px;
+  height: 32px;
+}

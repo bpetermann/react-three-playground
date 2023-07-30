@@ -6,10 +6,11 @@ import {
   OrbitControls,
 } from '@react-three/drei';
 import { useState, Suspense } from 'react';
+import Loading from './Loading';
 import Model from './Model';
 import Title from './Title';
 
-export default function Experience() {
+export default function Scene() {
   const [showScreen, setShowScreem] = useState(false);
 
   return (
@@ -33,7 +34,7 @@ export default function Experience() {
             rotation={[-0.1, Math.PI, 0]}
             position={[0, 0.55, -1.15]}
           />
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loading />}>
             <Model showScreen={showScreen} setShowScreem={setShowScreem} />
           </Suspense>
           <Title />

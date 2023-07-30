@@ -30,7 +30,7 @@ export default function Home() {
           {contaktDetails.map(({ name, link }) => (
             <li key={name + link}>
               <a href={link} className={styles[name]} target="_parent">
-                <img src={`/images/${name}.png`} alt={`${name} logo`} />
+                <img src={`/images/icons/${name}.png`} alt={`${name} logo`} />
               </a>
             </li>
           ))}
