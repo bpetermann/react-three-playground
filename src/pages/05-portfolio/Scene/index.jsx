@@ -3,7 +3,6 @@ import {
   PresentationControls,
   Float,
   ContactShadows,
-  OrbitControls,
 } from '@react-three/drei';
 import { useState, Suspense } from 'react';
 import Loading from './Loading';
@@ -16,12 +15,11 @@ export default function Scene() {
   return (
     <>
       <Environment files='./hdr/potsdamer_platz_1k.hdr' />
-      {!showScreen && <OrbitControls />}
       <PresentationControls
         global
         rotation={[0.13, 0.1, 0]}
         polar={[-0.4, 0.2]}
-        azimuth={[-1, 0.75]}
+        azimuth={[-1, !showScreen ? 3 : 0.75]}
         config={{ mass: 2, tension: 400 }}
         snap={{ mass: 2, tension: 400 }}
       >
