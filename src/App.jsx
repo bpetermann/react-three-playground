@@ -43,7 +43,7 @@ export default function Home() {
             <Link to={link} className={styles.link}>
               <img src={`/images/preview/0${i + 1}.png`} alt='preview image' />
               <span>
-                Link <img src='/images/arrow.png' alt='arrow' />
+                Link <img src='/images/icons/arrow.png' alt='arrow' />
               </span>
             </Link>
           </li>
