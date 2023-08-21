@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   Route,
@@ -7,14 +7,16 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import App from './App.jsx';
-import Page_01 from './pages/01-mirror-cabinet';
-import Page_02 from './pages/02-3d-text';
-import Page_03 from './pages/03-blender-scene/index.jsx';
-import Page_04 from './pages/04-chess-landing/index.jsx';
-import Page_05 from './pages/05-portfolio/index.jsx';
-import Page_05_Browser from './pages/05-portfolio-screen/index.jsx';
-import Page_06 from './pages/06-marble-game/index.jsx';
-import Page_07 from './pages/07-shader-art/index.jsx';
+const Page_01 = lazy(() => import('./pages/01-mirror-cabinet'));
+const Page_02 = lazy(() => import('./pages/02-3d-text'));
+const Page_03 = lazy(() => import('./pages/03-blender-scene/index.jsx'));
+const Page_04 = lazy(() => import('./pages/04-chess-landing/index.jsx'));
+const Page_05 = lazy(() => import('./pages/05-portfolio/index.jsx'));
+const Page_05_Browser = lazy(() =>
+  import('./pages/05-portfolio-screen/index.jsx')
+);
+const Page_06 = lazy(() => import('./pages/06-marble-game/index.jsx'));
+const Page_07 = lazy(() => import('./pages/07-shader-art/index.jsx'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
