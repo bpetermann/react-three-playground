@@ -13,7 +13,7 @@
     "@react-three/drei": "^9.96.2",
     "@react-three/fiber": "8.9",
     "@react-three/postprocessing": "2.7",
-    "@react-three/rapier": "1.0",
+    "@react-three/rapier": "1.5",
     "leva": "^0.9.35",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
