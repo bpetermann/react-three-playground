@@ -20,7 +20,7 @@
     "r3f-perf": "6.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.18.1",
+    "react-router-dom": "^7.18.3",
     "sort-by": "^0.0.2",
     "three": "^0.148.0",
     "vite-plugin-glsl": "^1.6.0",
